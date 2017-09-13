@@ -16,6 +16,5 @@ RUN apk add --update \
     mysql-client \
     build-base \
  && pip install --upgrade pip \
- && pip install virtualenv \
- && npm install -g nodemon
+ && pip install virtualenv
 
