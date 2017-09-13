@@ -17,6 +17,5 @@ RUN apk add --update \
     build-base \
  && pip install --upgrade pip \
  && pip install virtualenv \
- && adduser -s /bin/false -D appuser \
  && npm install -g nodemon
 
