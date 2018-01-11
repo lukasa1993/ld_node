@@ -1,4 +1,4 @@
-FROM irakli/node-alpine:6.9.2
+FROM node-alpine
 
 MAINTAINER NoOne
 
