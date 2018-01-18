@@ -1,4 +1,4 @@
-FROM node:alpine
+FROM node:carbon-alpine
 
 MAINTAINER NoOne
 
