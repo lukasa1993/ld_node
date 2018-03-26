@@ -16,5 +16,9 @@ RUN apk add --update \
     mysql-client \
     build-base \
  && pip install --upgrade pip \
- && pip install virtualenv
+ && pip install virtualenv \
+ && rm -rf /root/src /tmp/* /usr/share/man /var/cache/apk/* \
+     /root/.npm /root/.node-gyp /usr/lib/node_modules/npm/man \
+     /usr/lib/node_modules/npm/doc /usr/lib/node_modules/npm/html \
+  && apk search --update
 
