@@ -17,4 +17,4 @@ ENV HOME_DIR=/opt/app
 
 ENTRYPOINT ["/opt/docker-bin/docker-entrypoint.sh"]
 
-CMD ["npm start"]
+CMD ["cd /opt/app && npm start"]
