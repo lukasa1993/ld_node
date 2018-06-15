@@ -2,11 +2,11 @@ FROM node:10-alpine
 
 MAINTAINER LD
 
+USER root
+
 RUN mkdir -p /opt/docker-bin && mkdir -p /opt/app
 
-ADD docker-entrypoint.sh /opt/docker-bin
-
-USER root
+ADD docker-entrypoint.sh /opt/docker-bin/
 
 RUN chmod +x /opt/docker-bin/docker-entrypoint.sh
 
