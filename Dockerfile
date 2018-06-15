@@ -2,8 +2,9 @@ FROM node:10-alpine
 
 MAINTAINER LD
 
-ADD ./ /opt/app
-WORKDIR /opt/app
+RUN mkdir -p /opt/docker-bin
+
+ADD docker-entrypoint.sh /opt/docker-bin
 
 USER root
 
@@ -20,6 +21,6 @@ USER appuser
 ENV HOME_DIR=/opt/app
 
 
-ENTRYPOINT ["docker-entrypoint.sh"]
+ENTRYPOINT ["/opt/docker-bin/docker-entrypoint.sh"]
 
-CMD ["nodemon -L -e js,handlebars server.js"]
+CMD ["npm start"]
