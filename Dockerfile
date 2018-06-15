@@ -2,7 +2,7 @@ FROM node:10-alpine
 
 MAINTAINER LD
 
-RUN mkdir -p /opt/docker-bin
+RUN mkdir -p /opt/docker-bin && mkdir -p /opt/app
 
 ADD docker-entrypoint.sh /opt/docker-bin
 
