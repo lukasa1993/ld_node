@@ -1,12 +1,25 @@
-FROM node:carbon-alpine
+FROM node:10-alpine
 
-MAINTAINER NoOne
+MAINTAINER LD
+
+ADD ./ /opt/app
+WORKDIR /opt/app
 
 USER root
 
-RUN apk add --update build-base \
- && rm -rf /root/src /tmp/* /usr/share/man /var/cache/apk/* \
+RUN rm -rf /root/src /tmp/* /usr/share/man /var/cache/apk/* \
      /root/.npm /root/.node-gyp /usr/lib/node_modules/npm/man \
-     /usr/lib/node_modules/npm/doc /usr/lib/node_modules/npm/html \
-  && apk search --update
+     /usr/lib/node_modules/npm/doc /usr/lib/node_modules/npm/html
 
+
+RUN adduser -s /bin/false -D appuser \
+    && chown -R appuser /opt/app
+    
+USER appuser
+
+ENV HOME_DIR=/opt/app
+
+
+ENTRYPOINT ["docker-entrypoint.sh"]
+
+CMD ["nodemon -L -e js,handlebars server.js"]
