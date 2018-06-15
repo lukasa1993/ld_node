@@ -14,7 +14,7 @@ RUN rm -rf /root/src /tmp/* /usr/share/man /var/cache/apk/* \
 
 RUN adduser -s /bin/false -D appuser \
     && chown -R appuser /opt/app
-    
+
 USER appuser
 
 ENV HOME_DIR=/opt/app
