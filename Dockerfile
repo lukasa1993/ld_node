@@ -17,5 +17,3 @@ RUN rm -rf /root/src /tmp/* /usr/share/man /var/cache/apk/* \
 
 
 ENTRYPOINT ["/opt/docker-bin/docker-entrypoint.sh"]
-
-CMD ["cd $HOME_DIR && npm start"]
