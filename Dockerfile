@@ -1,4 +1,4 @@
-FROM node:12-alpine
+FROM node:14-alpine
 
 MAINTAINER LD
 
@@ -14,6 +14,6 @@ RUN rm -rf /root/src /tmp/* /usr/share/man /var/cache/apk/* \
      /root/.npm /root/.node-gyp /usr/lib/node_modules/npm/man \
      /usr/lib/node_modules/npm/doc /usr/lib/node_modules/npm/html
 
-
+RUN npm install -g npm
 
 ENTRYPOINT ["/opt/docker-bin/docker-entrypoint.sh"]
