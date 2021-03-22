@@ -2,8 +2,6 @@
 
 cd $HOME_DIR
 
-npm install
-
-npm install -g nodemon
+npm install --no-package-lock
 
 npm run start

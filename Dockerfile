@@ -14,6 +14,6 @@ RUN rm -rf /root/src /tmp/* /usr/share/man /var/cache/apk/* \
      /root/.npm /root/.node-gyp /usr/lib/node_modules/npm/man \
      /usr/lib/node_modules/npm/doc /usr/lib/node_modules/npm/html
 
-RUN npm install -g npm
+RUN npm install -g npm nodemon
 
 ENTRYPOINT ["/opt/docker-bin/docker-entrypoint.sh"]
