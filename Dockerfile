@@ -4,6 +4,9 @@ MAINTAINER LD
 
 ENV HOME_DIR=/opt/app
 
+# for node-pg-native
+RUN apk --no-cache add make python gcc postgresql-dev g++
+
 RUN mkdir -p /opt/docker-bin && mkdir -p $HOME_DIR
 
 ADD docker-entrypoint.sh /opt/docker-bin/
