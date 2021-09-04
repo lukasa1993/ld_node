@@ -5,7 +5,7 @@ MAINTAINER LD
 ENV HOME_DIR=/opt/app
 
 # for node-pg-native
-RUN apk --no-cache add make python gcc postgresql-dev g++
+RUN apk --no-cache add make python gcc postgresql-dev g++ libc6-compat
 
 RUN mkdir -p /opt/docker-bin && mkdir -p $HOME_DIR
 
