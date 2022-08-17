@@ -1,4 +1,4 @@
-FROM node:16-alpine
+FROM --platform=$BUILDPLATFORM node:16-alpine
 
 MAINTAINER LD
 
