@@ -1,6 +1,8 @@
 name: Continues deployment
 
 on:
+  workflow_dispatch:
+    
   push:
     branches:
       - main
