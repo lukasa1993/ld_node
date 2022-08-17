@@ -19,35 +19,16 @@ jobs:
       contents: read
 
     steps:
-      - uses: actions/checkout@v2
-
-      - name: docker build and push to ghcr
-        uses: whoan/docker-build-with-cache-action@v5
+      - name: Checkout
+        uses: actions/checkout@v3
+      - name: Set up QEMU
+        uses: docker/setup-qemu-action@v2
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v2
+      - name: Build and push
+        uses: docker/build-push-action@v3
         with:
-          username: ${{ github.repository_owner }}
-          password: ${{ secrets.GH_ACCESS_TOKEN }}
-          registry: ghcr.io
-          image_name: ${{ secrets.MS_NAME }}
-          image_tag: latest
-          build_extra_args: '--platform=linux/amd64'
-
-      - name: docker build ARM64 and push to ghcr
-        uses: whoan/docker-build-with-cache-action@v5
-        with:
-          username: ${{ github.repository_owner }}
-          password: ${{ secrets.GH_ACCESS_TOKEN }}
-          registry: ghcr.io
-          image_name: ${{ secrets.MS_NAME }}
-          image_tag: latest
-          build_extra_args: '--platform=linux/arm64'
-
-
-      - name: docker build ARMV7 and push to ghcr
-        uses: whoan/docker-build-with-cache-action@v5
-        with:
-          username: ${{ github.repository_owner }}
-          password: ${{ secrets.GH_ACCESS_TOKEN }}
-          registry: ghcr.io
-          image_name: ${{ secrets.MS_NAME }}
-          image_tag: latest
-          build_extra_args: '--platform=linux/arm/v7'
+          context: .
+          platforms: linux/amd64,linux/arm64,linux/arm/v7
+          push: true
+          tags: user/app:latest
