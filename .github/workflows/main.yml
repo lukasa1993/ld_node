@@ -29,6 +29,7 @@ jobs:
           registry: ghcr.io
           image_name: ${{ secrets.MS_NAME }}
           image_tag: latest
+          build_extra_args: '--platform linux/amd64'
 
       - name: docker build ARM64 and push to ghcr
         uses: whoan/docker-build-with-cache-action@v5
